@@ -17,17 +17,20 @@ int main(int argc, char* argv[]){
 
 	fread(&tmp, 1, sizeof(uint32_t), one);
 	fread(&tmp2, 1, sizeof(uint32_t), two);
+	//tmp  : e8030000
+	//tmp2 : f4010000
 
 	int ht_tmp = htonl(tmp);
 	int ht_tmp2 = htonl(tmp2);
+	//ht_tmp  : 3e8
+	//ht_tmp2 : 1f4
 
 	sum = ht_tmp + ht_tmp2;
 
-	printf("%d(0x%2x) + %d(0x%2x) = %d(0x%2x)\n", ht_tmp, ht_tmp, ht_tmp2, ht_tmp2, sum, sum);
+	printf("%d(0x%x) + %d(0x%x) = %d(0x%x)\n", ht_tmp, ht_tmp, ht_tmp2, ht_tmp2, sum, sum);
 
 	fclose(one);
 	fclose(two);
-
 
 	return 0;
 }
